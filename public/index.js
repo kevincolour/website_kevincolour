@@ -5,14 +5,7 @@
 		let encodedData = window.btoa(clientId + ':' + clientSecret);
 	
 		theUrl = 'https://spot-the-song.herokuapp.com/token';
-		// 	let  xmlHttp = new XMLHttpRequest();
-		// 	xmlHttp.open( 'GET', theUrl, true ); // false for synchronous request
-		// 	xmlHttp.send( null );
-		// //	console.log(xmlHttp);
-		// 	if (xmlHttp.status=== 200) {
-		// 		console.log("here");
-		// 		resolve(xmlHttp);
-		// 	}
+
 
 		$.ajax({
 			type: 'GET',
@@ -21,23 +14,18 @@
 				resolve(data);
 			},
 			error: (err)	=>{
-				console.log(err.responseText);
+				console.log('ERROR',err.responseText);
 			},
 		});
 		});
-		
-	getToken.then((success) => {
-		console.log((success));
-	});
-	
 	let jsonArray = [];
 	let token;
 	$(document).ready(function() {
-		console.log('hello2');
-		$('#song-search2').keypress(function() {
-			console.log('hello');
+	
+		$('#song-search2').keyup(function() {
+			
 		let searchString = $('#song-search2').val();
-		console.log(searchString);
+		
 		getToken.then((success) => {
 			token = success;
 			return $.ajax({
@@ -45,13 +33,13 @@
 				url: 'https://api.spotify.com/v1/search?q=' + searchString + '&type=track&limit=10', 
 				headers: {'Authorization': 'Bearer ' + token},
 				success: (data) => {
-					console.log(data);
+					
 					
 					$('#search-results').html('');
 					let seenSoFar = [];
 					data.tracks.items.forEach(function(item) { 
 						let artistName = item.artists[0].name;
-						console.log(artistName);
+						
 						if (!(seenSoFar.includes(artistName))) {
 							jsonArray.push(item);
 							seenSoFar.push(artistName);
@@ -72,7 +60,7 @@
 				},
 			});
 		}).catch((err)=>{
-console.log(err);
+console.log('error:', err);
 });
 	});
 	});
@@ -82,7 +70,6 @@ console.log(err);
 		let song = this.firstChild.textContent;
 		let artist = this.lastChild.textContent;
 	
-		console.log(jsonArray);
 		$.each(jsonArray, function(i, item) {
 			if (jsonArray[i].name === song && jsonArray[i].artists[0].name === artist) {
 				let id = jsonArray[i].id;
