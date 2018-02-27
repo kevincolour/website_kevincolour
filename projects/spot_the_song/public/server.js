@@ -26,7 +26,7 @@ router.use(function(req, res, next) {
     next(); // make sure we go to the next routes and don't stop here
 });
 
-router.get('/', function(req, res) {
+router.get('/token', function(req, res) {
     let clientSecret = '9a5c097853634f63bafd6613af5db317';
     let clientId = 'a73c194f38364ed2acd27f5b1ccfcdbe';
     let encodedData = Buffer.from(clientId + ':' + clientSecret).toString('base64');
@@ -61,7 +61,9 @@ headers: headers}, function(err, res2, body) {
 
 
 app.use('/', router);
-
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname+'/index.html'));
+})
 app.listen(port);
 console.log('Magic happens on port ' + port);
 
