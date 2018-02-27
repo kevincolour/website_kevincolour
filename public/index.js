@@ -4,7 +4,7 @@
 		let clientId = 'a73c194f38364ed2acd27f5b1ccfcdbe';
 		let encodedData = window.btoa(clientId + ':' + clientSecret);
 	
-		theUrl = 'http://localhost:8080/token';
+		theUrl = 'http://spot-the-song.herokuapp.com/token';
 		// 	let  xmlHttp = new XMLHttpRequest();
 		// 	xmlHttp.open( 'GET', theUrl, true ); // false for synchronous request
 		// 	xmlHttp.send( null );
