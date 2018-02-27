@@ -60,7 +60,7 @@ headers: headers}, function(err, res2, body) {
 
 
 
-app.use('/', router);
+app.use(express.static('public'));
 app.get('/', function(req, res) {
     
     res.sendFile(path.join(__dirname+'/index.html'));

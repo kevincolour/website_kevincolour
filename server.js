@@ -3,6 +3,7 @@ const app = express();
 const https = require('https');
 const request = require('request');
 
+
 const bodyParser = require('body-parser');
 const path = require('path');
 
@@ -59,12 +60,13 @@ headers: headers}, function(err, res2, body) {
     });
 
 
+app.use(express.static('public'));
 
 app.use('/', router);
-app.get('/', function(req, res) {
+// app.get('/', function(req, res) {
     
-    res.sendFile(path.join(__dirname+'/index.html'));
-})
+//     res.render(path.join(__dirname+'/index.html'));
+// })
 app.listen(port);
 console.log('Magic happens on port ' + port);
 
