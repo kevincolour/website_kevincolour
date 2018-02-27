@@ -26,37 +26,37 @@ router.use(function(req, res, next) {
     next(); // make sure we go to the next routes and don't stop here
 });
 
-router.get('/token', function(req, res) {
-    let clientSecret = '9a5c097853634f63bafd6613af5db317';
-    let clientId = 'a73c194f38364ed2acd27f5b1ccfcdbe';
-    let encodedData = Buffer.from(clientId + ':' + clientSecret).toString('base64');
+// router.get('/token', function(req, res) {
+//     let clientSecret = '9a5c097853634f63bafd6613af5db317';
+//     let clientId = 'a73c194f38364ed2acd27f5b1ccfcdbe';
+//     let encodedData = Buffer.from(clientId + ':' + clientSecret).toString('base64');
 
     
-    url = 'https://accounts.spotify.com/api/token';
-    headers ={
-        'content-type': 'application/x-www-form-urlencoded',
-        'Authorization': 'Basic ' + encodedData,
-    };   
-    const reque = request.post({url: url, body: 'grant_type=client_credentials',
-headers: headers}, function(err, res2, body) {
-        // console.log(res);        
-        // console.log(res);        
-        if (!err && res2.statusCode === 200) {
+//     url = 'https://accounts.spotify.com/api/token';
+//     headers ={
+//         'content-type': 'application/x-www-form-urlencoded',
+//         'Authorization': 'Basic ' + encodedData,
+//     };   
+//     const reque = request.post({url: url, body: 'grant_type=client_credentials',
+// headers: headers}, function(err, res2, body) {
+//         // console.log(res);        
+//         // console.log(res);        
+//         if (!err && res2.statusCode === 200) {
         
-           res.status(200).json(JSON.parse(body).access_token);
+//            res.status(200).json(JSON.parse(body).access_token);
            
-        }
-    });
+//         }
+//     });
     
-    // var xmlHttp = new XMLHttpRequest();
-    // xhr.setRequestHeader('Authorization','Basic' + encodedData);
+//     // var xmlHttp = new XMLHttpRequest();
+//     // xhr.setRequestHeader('Authorization','Basic' + encodedData);
  
-    //     xmlHttp.open( 'POST', theUrl, true );
-    //     XMLHttpRequest.send('grant_type=client_credentials');
+//     //     xmlHttp.open( 'POST', theUrl, true );
+//     //     XMLHttpRequest.send('grant_type=client_credentials');
 
-    //     console.log(xmlHttp.responseText);
-    //     console.log('here');
-    });
+//     //     console.log(xmlHttp.responseText);
+//     //     console.log('here');
+//     });
 
 
 
