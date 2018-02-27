@@ -75,14 +75,15 @@ console.log('error:', err);
 				let id = jsonArray[i].id;
 				$.ajax({
 					type: 'GET',
-					url: 'https://api.spotify.com/v1/audio-features/' + id,
+					url: 'https://api.spotify.com/v1/tracks/' + id,
 					headers: {'Authorization': 'Bearer ' + token},
 					success: (data)=>{
-						let bpm = (Math.floor(data.tempo));
+							
+						let pop = (Math.floor(data.popularity));
 						$('#result').html('');
-						let txt = song + ' has a BPM of ';
+						let txt = song + ' has a Popularity of ';
 						$('#result').append(txt);
-						$('#result').append(bpm);
+						$('#result').append(pop);
 					},
 				});
 			}
