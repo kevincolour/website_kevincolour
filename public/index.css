@@ -18,17 +18,26 @@ body{
     border-bottom: 2px solid blue;
     outline:none;
 }
-.jumbotron{
+#wrapper{
+    text-align : center;
+}
+.jumbotron2{
     margin-bottom: 0rem;
-    padding: 2rem 1rem;
+    padding: 0rem 0rem;
+    padding-top : 1rem;
     background-color : #1DB954;
     width: 50%;
-    border-radius : 40px;
+    border-radius : 100px;
+    display: inline-block;
     
  }
  p{
     color : white; 
     font : Montserrat;
+    font-size: 1.5em;
+ }
+ #title{
+    font-size: 2em;
  }
  h1{
      color : white;
