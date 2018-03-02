@@ -44,8 +44,8 @@
 							jsonArray.push(item);
 							seenSoFar.push(artistName);
 							let $div = $('<div></div>', {class: 'searchResult'});
-							let $span = $('<span></span>', {id: 'songName'});
-							let $span2 = $('<span></span>');
+							let $span = $('<span></span>', {class: 'songName'});
+							let $span2 = $('<span></span>', {id : 'artistName'});
 							$span.append(item.name);
 							$span2.append(artistName); 
 							$div.append($span);
@@ -80,10 +80,16 @@ console.log('error:', err);
 					success: (data)=>{
 							
 						let pop = (Math.floor(data.popularity));
+
 						$('#result').html('');
-						let txt = song + ' has a Popularity of ';
+						let $span = $('<span></span>', {class: 'songName'});
+						$span.append(song);
+						$('#result').append($span);
+						let txt = ' has a Popularity of ';
 						$('#result').append(txt);
-						$('#result').append(pop);
+						let $span2 = $('<span></span>', {id : 'popularity'})
+						$span2.append(pop);
+						$('#result').append($span2);
 					},
 				});
 			}

@@ -57,19 +57,28 @@ body{
     height : 2em;
     font-size: 2em;
     background-color :black  ;
+    color : white;
 }
-
+#popularity{
+    font-size : 2.5em;
+    color: #99ff99;
+}
 input:focus {outline:none;}
 
-#songName{
+.songName{
     font-size: 2.5em;
-    color : black;
+    color : white;
     
     
 }
+#artistName{
+    font-size:1em;
+    color:white;
+}
 .searchResult{
-    background-color: white;  
+    background-color: #282828;  
     text-align : center;
+    
 }
 .searchResult:hover{  
     background-color: grey;
@@ -78,7 +87,7 @@ input:focus {outline:none;}
 	
 	box-sizing: border-box;
 	text-align :center;
-    font-size: 3em;
+    font-size: 1.5em;
     border: none;
-  
+   color: white;
 }
